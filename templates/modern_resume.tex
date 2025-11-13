@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pifont}
+
+% Accent color
+\definecolor{accent}{HTML}{2F80ED}
+\setlist[itemize]{left=0pt,itemsep=4pt,topsep=4pt}
+
+% Section title style
+\newcommand{\sectiontitle}[1]{%
+  \vspace{0.8em}%
+  {\large\bfseries\textcolor{accent}{\ding{110}\, #1}}\\[-0.3em]
+  \tikz{\fill[accent] (0,0) rectangle (\linewidth,0.08em);}\\[0.2em]
+}
+
+\begin{document}
+
+% Name banner
+{\Huge \textbf{ {{ NAME | lex }} }}\\[-0.2em]
+\tikz{\fill[accent] (0,0) rectangle (\linewidth,0.15em);}\\[0.6em]
+
+% Icon bullets for lists (global)
+\renewcommand{\labelitemi}{\textcolor{accent}{\ding{228}}}% arrow bullet
+\renewcommand{\labelitemii}{\textcolor{accent}{\ding{226}}}% diamond bullet
+
+% Two-column layout: left sidebar (0.32) / right main (0.64)
+\noindent\begin{minipage}[t]{0.32\textwidth}
+\textbf{\textcolor{accent}{Contact}}\\[-0.3em]
+\tikz{\fill[accent] (0,0) rectangle (\linewidth,0.08em);}\\[0.2em]
+\small {{ CONTACT | lex }}
+
+\vspace{1.0em}
+\textbf{\textcolor{accent}{Skills}}\\[-0.3em]
+\tikz{\fill[accent] (0,0) rectangle (\linewidth,0.08em);}\\[0.2em]
+\renewcommand{\labelitemi}{\textcolor{accent}{\ding{228}}}% arrow bullet
+\small {{ SKILLS | lex }}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.64\textwidth}
+\sectiontitle{Summary}
+{{ SUMMARY | lex }}
+
+\sectiontitle{Experience}
+{{ EXPERIENCE | safe }}
+
+\sectiontitle{Education}
+{{ EDUCATION | safe }}
+
+\sectiontitle{Projects}
+{{ PROJECTS | safe }}
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,659 @@
+/* ============================================
+   Modern Resume Builder - Custom Styling
+   ============================================ */
+
+/* Import elegant font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   Root Variables - Modern Color Palette
+   ============================================ */
+:root {
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #818cf8;
+    --secondary-color: #10b981;
+    --accent-color: #f59e0b;
+    --background: #f8f9fc;
+    --surface: #ffffff;
+    --surface-hover: #f3f4f8;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+}
+
+.main {
+    background: linear-gradient(135deg, #f8f9fc 0%, #eef2ff 100%);
+    padding: 0 2rem;
+    margin-top: 0 !important;
+    position: relative;
+}
+
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.08) 100%);
+    border-radius: 0 0 50% 50% / 0 0 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.main > div {
+    position: relative;
+    z-index: 1;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Zero top padding */
+.block-container {
+    padding-top: 0 !important;
+    padding-bottom: 3rem;
+}
+
+/* ============================================
+   Header & Title Styling
+   ============================================ */
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Minimal padding for first heading */
+.main h1:first-of-type {
+    animation: fadeInDown 0.6s ease-out;
+    padding-top: 0.5rem;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Sidebar Styling
+   ============================================ */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
+    border-right: 1px solid rgba(139, 92, 246, 0.1);
+    box-shadow: 4px 0 15px rgba(99, 102, 241, 0.08);
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    padding: 1.5rem 1.5rem;
+}
+
+/* Sidebar title - Remove emoji prefix */
+[data-testid="stSidebar"] h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Remove the emoji before title that comes from app.py */
+[data-testid="stSidebar"] h1::before {
+    content: none !important;
+}
+
+/* Sidebar navigation label */
+[data-testid="stSidebar"] .stRadio > label {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Compact navigation with emojis */
+[data-testid="stSidebar"] [role="radiogroup"] label {
+    padding: 0.65rem 0.9rem;
+    margin: 0.15rem 0;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+/* Add gradient background effect */
+[data-testid="stSidebar"] [role="radiogroup"] label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.08), transparent);
+    transition: width 0.3s ease;
+}
+
+/* Subtle hover with gentle rgba colors */
+[data-testid="stSidebar"] [role="radiogroup"] label:hover::before {
+    width: 100%;
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+    background: rgba(99, 102, 241, 0.04);
+    border-left-color: rgba(99, 102, 241, 0.3);
+    transform: translateX(2px);
+}
+
+/* Subtle selected state with soft gradient */
+[data-testid="stSidebar"] [role="radiogroup"] label[data-selected="true"] {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.06) 100%);
+    border-left-color: var(--primary-color);
+    font-weight: 600;
+    color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+}
+
+/* Add spacing between emoji and text in navigation */
+[data-testid="stSidebar"] [role="radiogroup"] label > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.stButton > button {
+    border-radius: var(--radius-md);
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.02em;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Primary button */
+.stButton > button[kind="primary"],
+.stButton > button[data-testid*="primary"] {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #3730a3 100%);
+}
+
+/* Secondary buttons */
+.stButton > button:not([kind="primary"]) {
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.stButton > button:not([kind="primary"]):hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Cards & Containers
+   ============================================ */
+.element-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Streamlit containers - Add subtle background patterns */
+[data-testid="stVerticalBlock"] > [data-testid="stVerticalBlock"] {
+    background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid rgba(99, 102, 241, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-testid="stVerticalBlock"] > [data-testid="stVerticalBlock"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+[data-testid="stVerticalBlock"] > [data-testid="stVerticalBlock"]:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(99, 102, 241, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Expanders */
+.streamlit-expanderHeader {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.streamlit-expanderHeader:hover {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3f4f8 100%);
+    border-color: var(--primary-light);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+}
+
+.streamlit-expanderContent {
+    background: #ffffff;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-top: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    padding: 1.5rem;
+}
+
+/* ============================================
+   Metrics
+   ============================================ */
+[data-testid="metric-container"] {
+    background: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-testid="metric-container"]::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+[data-testid="metric-container"]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.15);
+    border-left-width: 6px;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricDelta"] {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* ============================================
+   Inputs
+   ============================================ */
+.stTextInput > div > div,
+.stTextArea > div > div,
+.stSelectbox > div > div,
+.stNumberInput > div > div {
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+    background: var(--surface);
+}
+
+.stTextInput > div > div:focus-within,
+.stTextArea > div > div:focus-within,
+.stSelectbox > div > div:focus-within,
+.stNumberInput > div > div:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+input, textarea, select {
+    font-size: 0.95rem !important;
+}
+
+/* Labels */
+.stTextInput > label,
+.stTextArea > label,
+.stSelectbox > label,
+.stNumberInput > label {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   File Uploader
+   ============================================ */
+[data-testid="stFileUploader"] {
+    background: var(--surface);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.02);
+}
+
+/* ============================================
+   Alerts & Messages
+   ============================================ */
+.stAlert {
+    border-radius: var(--radius-md);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 1.5rem;
+    animation: slideInRight 0.4s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Info alert */
+[data-baseweb="notification"][kind="info"] {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+    border-left: 4px solid #3b82f6;
+}
+
+/* Success alert */
+[data-baseweb="notification"][kind="success"] {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+    border-left: 4px solid var(--secondary-color);
+}
+
+/* Warning alert */
+[data-baseweb="notification"][kind="warning"] {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.05) 100%);
+    border-left: 4px solid var(--accent-color);
+}
+
+/* Error alert */
+[data-baseweb="notification"][kind="error"] {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+    border-left: 4px solid #ef4444;
+}
+
+/* ============================================
+   Progress & Spinner
+   ============================================ */
+.stSpinner > div {
+    border-color: var(--primary-light) !important;
+    border-right-color: var(--primary-color) !important;
+}
+
+/* ============================================
+   Dataframe & Tables
+   ============================================ */
+.dataframe {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.dataframe thead tr {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+
+.dataframe tbody tr:hover {
+    background: var(--surface-hover);
+}
+
+/* ============================================
+   JSON Display
+   ============================================ */
+.stJson {
+    background: #1e293b !important;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   Markdown Enhancements
+   ============================================ */
+.main .markdown-text-container {
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.main .markdown-text-container code {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-dark);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.main .markdown-text-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.main .markdown-text-container a:hover {
+    border-bottom-color: var(--primary-color);
+}
+
+/* ============================================
+   Columns
+   ============================================ */
+.row-widget.stHorizontal {
+    gap: 1.5rem;
+}
+
+/* ============================================
+   Download Button
+   ============================================ */
+.stDownloadButton > button {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #059669 100%);
+    color: white;
+    border-radius: var(--radius-md);
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.stDownloadButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* ============================================
+   Form
+   ============================================ */
+.stForm {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+.stForm [data-testid="stFormSubmitButton"] button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   Separator
+   ============================================ */
+hr {
+    margin: 2rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+/* ============================================
+   Chat Interface
+   ============================================ */
+.stChatMessage {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    .main {
+        padding: 1rem;
+    }
+    
+    [data-testid="stSidebar"] > div:first-child {
+        padding: 1rem;
+    }
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-light), var(--primary-color));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--primary-color), var(--primary-dark));
+}
+
+/* ============================================
+   Special Elements
+   ============================================ */
+.stProgress > div > div {
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    border-radius: 10px;
+}
+
+/* Slider */
+.stSlider > div > div > div {
+    background: var(--primary-color);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.stSpinner {
+    animation: pulse 1.5s ease-in-out infinite;
+}

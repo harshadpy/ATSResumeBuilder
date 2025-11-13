@@ -1,0 +1,39 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+\setlist[itemize]{left=0pt,itemsep=1pt,topsep=1pt}
+\newcommand{\sectiondivider}{\vspace{0.3em}\hrule height 0.4pt\vspace{0.5em}}
+
+\begin{document}
+
+% Header
+{\LARGE {{ NAME | lex }}}\\
+{{ CONTACT | lex }}
+
+\vspace{0.8em}
+\section*{Summary}
+\sectiondivider
+{{ SUMMARY | lex }}
+
+\section*{Experience}
+\sectiondivider
+{{ EXPERIENCE | safe }}
+
+\section*{Education}
+\sectiondivider
+{{ EDUCATION | safe }}
+
+\section*{Skills}
+\sectiondivider
+{{ SKILLS | lex }}
+
+\section*{Projects}
+\sectiondivider
+{{ PROJECTS | safe }}
+
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\setlist[itemize]{left=0pt,itemsep=1pt,topsep=1pt}
+\pagestyle{empty}
+
+% Section label macro: smallcaps minimal style
+\newcommand{\minisection}[1]{\vspace{0.5em}\textsc{#1}\\}
+
+\begin{document}
+
+% Compact header
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+{\large {{ NAME | lex }} } & \\[-0.2em]
+{{ CONTACT | lex }} & \\
+\end{tabular*}
+
+\minisection{Summary}
+{{ SUMMARY | lex }}
+
+\minisection{Experience}
+{{ EXPERIENCE | safe }}
+
+\minisection{Education}
+{{ EDUCATION | safe }}
+
+\minisection{Skills}
+{{ SKILLS | lex }}
+
+\minisection{Projects}
+{{ PROJECTS | safe }}
+
+\end{document}

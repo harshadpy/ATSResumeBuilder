@@ -1,0 +1,46 @@
+# Create a .gitignore with common patterns (run from repo root)
+@"
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+dist/
+build/
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets & env
+.env
+.env.local
+.env.*.local
+
+# Generated outputs
+outputs/
+*.log
+
+# OS files
+*.swp
+
+# Streamlit cache
+.streamlit/
+
+# Docker
+docker-compose.override.yml
+Dockerfile
+
+# Optional: macOS
+*.DS_Store
+"@ > .gitignore
