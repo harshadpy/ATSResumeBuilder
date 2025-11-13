@@ -7,7 +7,7 @@ services:
     startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10
+        value: "3.10.11"
       - key: OPENAI_API_KEY
         sync: false
       - key: OPENAI_MODEL
