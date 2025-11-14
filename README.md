@@ -9,6 +9,10 @@
 Welcome to the **Smart Resume Builder** — your intelligent companion for crafting **ATS‑optimized**, cleanly structured, professionally formatted resumes.
 
 Build an ATS-optimized resume with explainable scoring and AI‑powered enhancement.
+<p align="center">
+  <img width="1729" height="861" alt="image" src="https://github.com/user-attachments/assets/48f4043e-684d-48ad-9fb6-d004117fb6d0" />
+</p>
+
 
 ---
 
